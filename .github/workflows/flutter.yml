@@ -7,31 +7,31 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  build:                         # ← 2 espacios antes de “build:”
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Set up Flutter
-  uses: subosito/flutter-action@v2
-  with:
-    flutter-version: "3.24.0-17.0.pre"   # ← beta con Dart 3.8
-    channel: beta
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.24.0-17.0.pre"   # beta con Dart 3.8
+          channel: beta
 
-    - name: Install dependencies
-      run: flutter pub get
+      - name: Install dependencies
+        run: flutter pub get
 
-    - name: Analyze
-      run: flutter analyze --no-fatal-infos
+      - name: Analyze
+        run: flutter analyze --no-fatal-infos
 
-    - name: Run tests
-      run: flutter test --coverage
+      - name: Run tests
+        run: flutter test --coverage
 
-    - name: Build APK (debug)
-      run: flutter build apk --debug -t lib/main.dart
+      - name: Build APK (debug)
+        run: flutter build apk --debug -t lib/main.dart
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: app-apk
-        path: build/app/outputs/flutter-apk/app-debug.apk
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-apk
+          path: build/app/outputs/flutter-apk/app-debug.apk
