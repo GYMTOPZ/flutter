@@ -2,3 +2,4 @@ modules = ["cpp-clang14", "ruby-3.2", "python-3.12"]
 
 [nix]
 channel = "stable-24_05"
+packages = ["flutter316"]
