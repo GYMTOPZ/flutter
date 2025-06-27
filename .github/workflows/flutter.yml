@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - - name: Set up Flutter
+    - name: Set up Flutter
       uses: subosito/flutter-action@v2
       with:
         channel: beta            # siempre la beta más reciente (Dart 3.8)
