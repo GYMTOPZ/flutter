@@ -12,11 +12,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up Flutter
+    - - name: Set up Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: "3.22.x"
-        channel: stable
+        channel: beta            # siempre la beta más reciente (Dart 3.8)
+        flutter-version: "3.24.x"
 
     - name: Install dependencies
       run: flutter pub get
